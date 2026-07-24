@@ -1,3 +1,5 @@
+import os
+
 from google.adk.agents import LlmAgent
 from google.adk.models.lite_llm import LiteLlm
 
@@ -22,6 +24,7 @@ except ImportError:
     )
     from core.adk_agent_runner import run_adk_agent
 
+MODEL = os.getenv("MODEL")
 
 class FinanceAgent:
 
@@ -30,7 +33,7 @@ class FinanceAgent:
         self.agent = LlmAgent(
             name="finance_agent",
             model=LiteLlm(
-                model="groq/llama-3.3-70b-versatile"
+                model=MODEL
             ),
             instruction="""
 You are a Finance Domain Agent.
@@ -71,12 +74,13 @@ Do not invent data. Use only the information available from the tools, task, and
             ]
         )
 
-    async def run(self, task: str, parameters: dict):
+    async def run(self, task: str, parameters: dict, attempt: int = 1):
         return await run_adk_agent(
             agent=self.agent,
             agent_name=self.name,
             task=task,
-            parameters=parameters
+            parameters=parameters,
+            attempt=attempt
         )
 
 

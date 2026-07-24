@@ -1,3 +1,5 @@
+import os
+
 from google.adk.agents import LlmAgent
 from google.adk.models.lite_llm import LiteLlm
 
@@ -24,6 +26,7 @@ except ImportError:
     )
     from core.adk_agent_runner import run_adk_agent
 
+MODEL = os.getenv("MODEL")
 
 class InventoryAgent:
 
@@ -32,7 +35,7 @@ class InventoryAgent:
         self.agent = LlmAgent(
             name="inventory_agent",
             model=LiteLlm(
-                model="groq/llama-3.3-70b-versatile"
+                model=MODEL
             ),
             instruction="""
 You are an Inventory Domain Agent.
@@ -43,34 +46,25 @@ Analyze the task assigned by the Planner Agent. Use the provided tools natively 
 
 CRITICAL TOOL CALLING FORMAT:
 If you need to call a tool, you MUST format the call exactly like this:
-<function=tool_name>{"arg_name": "value"}</function>
-Never use any other format. Always close the opening tag with ">" and put the JSON arguments immediately after it. Do not use "=" after the function name in the tag.
-
-Consider:
-- Current stock vs safety stock
-- Warehouse utilization & congestion risk
-- Predicted demand vs current stock
-- Reorder requirements (quantities & priorities)
-- Supplier reliability & rating
-- Risk scores & summary actions
+<function=tool_name>{"arg_name": "value"}
 
 Once you have finished executing all necessary tools, output your final recommendation as a JSON block in this format:
 {
     "agent_name": "InventoryAgent",
     "recommendation": "Clear inventory recommendation",
-    "confidence": 0.90,
+    "confidence": 0.95,
     "metrics": {
         "inventory": {},
         "forecast": {},
-        "capacity": {},
-        "reorder_recommendation": {},
-        "supplier_recommendation": {},
-        "inventory_risk": {},
-        "inventory_summary": {}
+        "warehouse": {},
+        "reorder": {},
+        "supplier": {},
+        "risk": {},
+        "summary": {}
     }
 }
 
-Do not invent data. Use only information returned by the tools, the assigned task, and provided parameters.
+Do not invent data. Use only the information available from the tools, task, and parameters.
 """,
             tools=[
                 fetch_inventory,
@@ -83,12 +77,13 @@ Do not invent data. Use only information returned by the tools, the assigned tas
             ]
         )
 
-    async def run(self, task: str, parameters: dict):
+    async def run(self, task: str, parameters: dict, attempt: int = 1):
         return await run_adk_agent(
             agent=self.agent,
             agent_name=self.name,
             task=task,
-            parameters=parameters
+            parameters=parameters,
+            attempt=attempt
         )
 
 

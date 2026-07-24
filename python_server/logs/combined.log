@@ -1,2 +1,395 @@
 {"time": "2026-03-15 19:01:58,281", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session 123"}
 {"time": "2026-03-15 19:01:58,544", "level": "INFO", "module": "multi_agent", "message": "Running enterprise negotiation for session: 123"}
+{"time": "2026-07-25 02:38:18,187", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
+{"time": "2026-07-25 03:34:33,183", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
+{"time": "2026-07-25 03:34:49,070", "level": "ERROR", "module": "multi_agent", "message": "Unhandled Exception: POST http://localhost:3001/api/v1/orchestrate - litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model=Nemotron-3-Nano-Omni-30B-A3B
+ Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"}
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 95, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 153, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 107, in app
+    response = await f(request)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 314, in run_endpoint_function
+    return await dependant.call(**values)
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\api\v1\routes.py", line 20, in trigger_agents
+    decision = await run_adk_orchestration(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\core\adk_runner.py", line 21, in run_adk_orchestration
+    return await orchestrator.run(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\orchestrator.py", line 36, in run
+    plan = await self.planner.plan(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\planner_agent.py", line 230, in plan
+    async for event in self.runner.run_async(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 565, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 550, in _run_with_trace
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 539, in execute
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\base_agent.py", line 295, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\llm_agent.py", line 470, in _run_async_impl
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 752, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 829, in _run_one_step_async
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1186, in _call_llm_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1169, in _call_llm_with_tracing
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1245, in _run_and_handle_error
+    async for response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 389, in _run_and_handle_error
+    raise model_error
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 374, in _run_and_handle_error
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 2148, in generate_content_async
+    response = await self.llm_client.acompletion(**completion_args)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 444, in acompletion
+    return await acompletion(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 2041, in wrapper_async
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 1862, in wrapper_async
+    result = await original_function(*args, **kwargs)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\main.py", line 567, in acompletion
+    _, custom_llm_provider, _, _ = get_llm_provider(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\get_llm_provider_logic.py", line 476, in get_llm_provider
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\get_llm_provider_logic.py", line 457, in get_llm_provider
+    raise litellm.exceptions.BadRequestError(  # type: ignore
+litellm.exceptions.BadRequestError: litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model=Nemotron-3-Nano-Omni-30B-A3B
+ Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers
+{"time": "2026-07-25 03:39:10,106", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
+{"time": "2026-07-25 03:39:18,912", "level": "ERROR", "module": "multi_agent", "message": "Unhandled Exception: POST http://localhost:3001/api/v1/orchestrate - litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model=Nemotron-3-Nano-Omni-30B-A3B
+ Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"}
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 95, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 153, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 107, in app
+    response = await f(request)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 314, in run_endpoint_function
+    return await dependant.call(**values)
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\api\v1\routes.py", line 20, in trigger_agents
+    decision = await run_adk_orchestration(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\core\adk_runner.py", line 21, in run_adk_orchestration
+    return await orchestrator.run(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\orchestrator.py", line 36, in run
+    plan = await self.planner.plan(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\planner_agent.py", line 230, in plan
+    async for event in self.runner.run_async(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 565, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 550, in _run_with_trace
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 539, in execute
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\base_agent.py", line 295, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\llm_agent.py", line 470, in _run_async_impl
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 752, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 829, in _run_one_step_async
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1186, in _call_llm_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1169, in _call_llm_with_tracing
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1245, in _run_and_handle_error
+    async for response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 389, in _run_and_handle_error
+    raise model_error
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 374, in _run_and_handle_error
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 2148, in generate_content_async
+    response = await self.llm_client.acompletion(**completion_args)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 444, in acompletion
+    return await acompletion(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 2041, in wrapper_async
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 1862, in wrapper_async
+    result = await original_function(*args, **kwargs)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\main.py", line 567, in acompletion
+    _, custom_llm_provider, _, _ = get_llm_provider(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\get_llm_provider_logic.py", line 476, in get_llm_provider
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\get_llm_provider_logic.py", line 457, in get_llm_provider
+    raise litellm.exceptions.BadRequestError(  # type: ignore
+litellm.exceptions.BadRequestError: litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model=Nemotron-3-Nano-Omni-30B-A3B
+ Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers
+{"time": "2026-07-25 03:42:30,724", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
+{"time": "2026-07-25 03:42:40,337", "level": "ERROR", "module": "multi_agent", "message": "Unhandled Exception: POST http://localhost:3001/api/v1/orchestrate - litellm.InternalServerError: InternalServerError: Nvidia_nimException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NVIDIA_NIM_API_KEY` or `NVIDIA_NIM_ADMIN_KEY` environment variable."}
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 897, in acompletion
+    openai_aclient: AsyncOpenAI = self._get_openai_client(  # type: ignore
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 385, in _get_openai_client
+    _new_client: Union[OpenAI, AsyncOpenAI] = AsyncOpenAI(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\openai\_client.py", line 829, in __init__
+    raise OpenAIError(
+openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\main.py", line 613, in acompletion
+    response = await init_response
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 983, in acompletion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 95, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 153, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 107, in app
+    response = await f(request)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 314, in run_endpoint_function
+    return await dependant.call(**values)
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\api\v1\routes.py", line 20, in trigger_agents
+    decision = await run_adk_orchestration(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\core\adk_runner.py", line 21, in run_adk_orchestration
+    return await orchestrator.run(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\orchestrator.py", line 36, in run
+    plan = await self.planner.plan(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\planner_agent.py", line 230, in plan
+    async for event in self.runner.run_async(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 565, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 550, in _run_with_trace
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 539, in execute
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\base_agent.py", line 295, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\llm_agent.py", line 470, in _run_async_impl
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 752, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 829, in _run_one_step_async
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1186, in _call_llm_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1169, in _call_llm_with_tracing
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1245, in _run_and_handle_error
+    async for response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 389, in _run_and_handle_error
+    raise model_error
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 374, in _run_and_handle_error
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 2148, in generate_content_async
+    response = await self.llm_client.acompletion(**completion_args)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 444, in acompletion
+    return await acompletion(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 2041, in wrapper_async
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 1862, in wrapper_async
+    result = await original_function(*args, **kwargs)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\main.py", line 632, in acompletion
+    raise exception_type(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2398, in exception_type
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 561, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: Nvidia_nimException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NVIDIA_NIM_API_KEY` or `NVIDIA_NIM_ADMIN_KEY` environment variable.
+{"time": "2026-07-25 03:44:14,827", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
+{"time": "2026-07-25 03:44:34,167", "level": "ERROR", "module": "multi_agent", "message": "Unhandled Exception: POST http://localhost:3001/api/v1/orchestrate - litellm.NotFoundError: NotFoundError: Nvidia_nimException - 404 page not found"}
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 923, in acompletion
+    headers, response = await self.make_openai_chat_completion_request(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\logging_utils.py", line 297, in async_wrapper
+    result = await func(*args, **kwargs)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 460, in make_openai_chat_completion_request
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 437, in make_openai_chat_completion_request
+    await openai_aclient.chat.completions.with_raw_response.create(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\openai\_legacy_response.py", line 386, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\openai\resources\chat\completions\completions.py", line 2883, in create
+    return await self._post(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\openai\_base_client.py", line 1977, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\openai\_base_client.py", line 1762, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: 404 page not found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\main.py", line 613, in acompletion
+    response = await init_response
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\llms\openai\openai.py", line 983, in acompletion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: 404 page not found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 95, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\cors.py", line 153, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 107, in app
+    response = await f(request)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 426, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\fastapi\routing.py", line 314, in run_endpoint_function
+    return await dependant.call(**values)
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\api\v1\routes.py", line 20, in trigger_agents
+    decision = await run_adk_orchestration(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\core\adk_runner.py", line 21, in run_adk_orchestration
+    return await orchestrator.run(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\orchestrator.py", line 36, in run
+    plan = await self.planner.plan(
+  File "C:\workSpace\Project\dump\proj2\Multi-Agent-Decision-Engine-v2\python_server\app\agents\planner_agent.py", line 230, in plan
+    async for event in self.runner.run_async(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 565, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 550, in _run_with_trace
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\runners.py", line 539, in execute
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\base_agent.py", line 295, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\agents\llm_agent.py", line 470, in _run_async_impl
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 752, in run_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 829, in _run_one_step_async
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1186, in _call_llm_async
+    async for event in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1169, in _call_llm_with_tracing
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 1245, in _run_and_handle_error
+    async for response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 389, in _run_and_handle_error
+    raise model_error
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\flows\llm_flows\base_llm_flow.py", line 374, in _run_and_handle_error
+    async for llm_response in agen:
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 2148, in generate_content_async
+    response = await self.llm_client.acompletion(**completion_args)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\google\adk\models\lite_llm.py", line 444, in acompletion
+    return await acompletion(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 2041, in wrapper_async
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\utils.py", line 1862, in wrapper_async
+    result = await original_function(*args, **kwargs)
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\main.py", line 632, in acompletion
+    raise exception_type(
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2398, in exception_type
+    raise e
+  File "C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 525, in exception_type
+    raise NotFoundError(
+litellm.exceptions.NotFoundError: litellm.NotFoundError: NotFoundError: Nvidia_nimException - 404 page not found
+{"time": "2026-07-25 04:03:14,142", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
+{"time": "2026-07-25 04:27:37,714", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
