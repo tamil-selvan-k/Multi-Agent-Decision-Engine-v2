@@ -1,0 +1,2 @@
+{"time": "2026-03-15 19:01:58,281", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session 123"}
+{"time": "2026-03-15 19:01:58,544", "level": "INFO", "module": "multi_agent", "message": "Running enterprise negotiation for session: 123"}

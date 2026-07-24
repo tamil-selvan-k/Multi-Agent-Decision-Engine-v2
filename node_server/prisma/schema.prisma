@@ -1,0 +1,416 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String?
+  googleId     String?  @unique
+  name         String
+  roleId       String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  role         Role     @relation(fields: [roleId], references: [id])
+
+  @@map("users")
+}
+
+model Role {
+  id          String           @id @default(uuid())
+  name        String           @unique
+  description String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  permissions RolePermission[]
+  users       User[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id          String           @id @default(uuid())
+  name        String           @unique
+  description String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  roles       RolePermission[]
+
+  @@map("permissions")
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model accounts {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email         String          @unique @db.VarChar(255)
+  company_name  String?         @db.VarChar(255)
+  is_active     Boolean?        @default(true)
+  created_at    DateTime?       @default(now()) @db.Timestamp(6)
+  api_keys      api_keys[]
+  audit_logs    audit_logs[]
+  subscriptions subscriptions[]
+  usage_logs    usage_logs[]
+}
+
+model anomaly_data {
+  id      Int      @id @default(autoincrement())
+  anomaly Boolean?
+  score   Float?
+
+  @@index([id], map: "ix_anomaly_data_id")
+}
+
+model api_keys {
+  id         String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  account_id String       @db.Uuid
+  key_hash   String       @unique
+  is_active  Boolean?     @default(true)
+  created_at DateTime?    @default(now()) @db.Timestamp(6)
+  revoked_at DateTime?    @db.Timestamp(6)
+  accounts   accounts     @relation(fields: [account_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_api_keys_account")
+  usage_logs usage_logs[]
+
+  @@index([account_id], map: "idx_api_keys_account")
+}
+
+model audit_logs {
+  id          BigInt    @id @default(autoincrement())
+  account_id  String?   @db.Uuid
+  action      String
+  entity_type String
+  entity_id   String?   @db.Uuid
+  old_value   Json?
+  new_value   Json?
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  accounts    accounts? @relation(fields: [account_id], references: [id], onUpdate: NoAction, map: "fk_audit_account")
+}
+
+model budget_data {
+  id         Int     @id @default(autoincrement())
+  department String? @db.VarChar
+  budget     Int?
+  spending   Int?
+
+  @@index([department], map: "ix_budget_data_department")
+  @@index([id], map: "ix_budget_data_id")
+}
+
+model budget_impact {
+  id               Int      @id @default(autoincrement())
+  budget_exceeded  Boolean?
+  remaining_budget Int?
+  cashflow         String?  @db.VarChar
+
+  @@index([id], map: "ix_budget_impact_id")
+}
+
+model cost_estimate {
+  id         Int  @id @default(autoincrement())
+  extra_cost Int?
+
+  @@index([id], map: "ix_cost_estimate_id")
+}
+
+model delivery_eta {
+  id                       Int    @id @default(autoincrement())
+  estimated_delivery_hours Int?
+  delay_probability        Float?
+
+  @@index([id], map: "ix_delivery_eta_id")
+}
+
+model delivery_risk {
+  id         Int     @id @default(autoincrement())
+  risk_score Float?
+  risk_level String? @db.VarChar
+  reason     String? @db.VarChar
+
+  @@index([id], map: "ix_delivery_risk_id")
+}
+
+model demand_forecast {
+  id               Int  @id @default(autoincrement())
+  predicted_demand Int?
+
+  @@index([id], map: "ix_demand_forecast_id")
+}
+
+model embeddings {
+  id         Int                   @id @default(autoincrement())
+  content    String
+  embedding  Unsupported("vector")
+  metadata_  String
+  created_at DateTime              @db.Timestamp(6)
+}
+
+model financial_history {
+  id               Int     @id @default(autoincrement())
+  month            String? @db.VarChar
+  department       String? @db.VarChar
+  budget           Int?
+  spending         Int?
+  revenue          Int?
+  operational_cost Int?
+  procurement_cost Int?
+
+  @@index([id], map: "ix_financial_history_id")
+  @@index([month], map: "ix_financial_history_month")
+}
+
+model financial_risk {
+  id         Int     @id @default(autoincrement())
+  risk_score Float?
+  risk_level String? @db.VarChar
+
+  @@index([id], map: "ix_financial_risk_id")
+}
+
+model financial_roi {
+  id              Int      @id @default(autoincrement())
+  roi             Float?
+  profitable      Boolean?
+  expected_return Int?
+
+  @@index([id], map: "ix_financial_roi_id")
+}
+
+model forecast_data {
+  id         Int    @id @default(autoincrement())
+  forecast   Float?
+  confidence Float?
+
+  @@index([id], map: "ix_forecast_data_id")
+}
+
+model growth_data {
+  id     Int    @id @default(autoincrement())
+  growth Float?
+
+  @@index([id], map: "ix_growth_data_id")
+}
+
+model inventory_data {
+  id                 Int  @id @default(autoincrement())
+  current_stock      Int?
+  warehouse_capacity Int?
+  safety_stock       Int?
+
+  @@index([id], map: "ix_inventory_data_id")
+}
+
+model inventory_history {
+  id                 Int     @id @default(autoincrement())
+  month              String? @db.VarChar
+  current_stock      Int?
+  sold               Int?
+  incoming_stock     Int?
+  warehouse_capacity Int?
+  safety_stock       Int?
+
+  @@index([id], map: "ix_inventory_history_id")
+}
+
+model inventory_risk {
+  id         Int     @id @default(autoincrement())
+  risk_score Float?
+  risk_level String? @db.VarChar
+
+  @@index([id], map: "ix_inventory_risk_id")
+}
+
+model inventory_summary {
+  id                Int      @id @default(autoincrement())
+  status            String?  @db.VarChar
+  action            String?  @db.VarChar
+  expected_stockout Boolean?
+
+  @@index([id], map: "ix_inventory_summary_id")
+}
+
+model optimization_data {
+  id                Int  @id @default(autoincrement())
+  recommended_stock Int?
+
+  @@index([id], map: "ix_optimization_data_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model plans {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String          @unique @db.VarChar(100)
+  rate_limit    Int
+  burst_limit   Int
+  refill_rate   Int
+  monthly_price Decimal?        @db.Decimal(10, 2)
+  created_at    DateTime?       @default(now()) @db.Timestamp(6)
+  subscriptions subscriptions[]
+}
+
+model production_recommendation {
+  id             Int     @id @default(autoincrement())
+  recommendation String? @db.VarChar
+
+  @@index([id], map: "ix_production_recommendation_id")
+}
+
+model reorder_recommendation {
+  id       Int      @id @default(autoincrement())
+  reorder  Boolean?
+  quantity Int?
+  priority String?  @db.VarChar
+
+  @@index([id], map: "ix_reorder_recommendation_id")
+}
+
+model revenue_analysis {
+  id                  Int    @id @default(autoincrement())
+  total_revenue       Float?
+  average_order_value Float?
+  highest_sale        Float?
+
+  @@index([id], map: "ix_revenue_analysis_id")
+}
+
+model route_optimization {
+  id                Int     @id @default(autoincrement())
+  best_route        String? @db.VarChar
+  total_distance_km Int?
+
+  @@index([id], map: "ix_route_optimization_id")
+}
+
+model sales_data {
+  id            Int    @id @default(autoincrement())
+  order_id      String @db.VarChar
+  date          String @db.VarChar
+  product_id    String @db.VarChar
+  product_name  String @db.VarChar
+  quantity      Int
+  selling_price Float
+  revenue       Float
+  region        String @db.VarChar
+  sales         Float
+
+  @@index([date], map: "ix_sales_data_date")
+  @@index([id], map: "ix_sales_data_id")
+}
+
+model shipment {
+  id                   Int     @id @default(autoincrement())
+  shipment_id          String? @unique(map: "ix_shipment_shipment_id") @db.VarChar
+  order_id             String? @db.VarChar
+  supplier_id          String? @db.VarChar
+  supplier_name        String? @db.VarChar
+  warehouse_id         String? @db.VarChar
+  origin               String? @db.VarChar
+  destination          String? @db.VarChar
+  vehicle_type         String? @db.VarChar
+  distance_km          Float?
+  dispatch_date        String? @db.VarChar
+  eta                  Float?
+  actual_delivery_date String? @db.VarChar
+  transportation_cost  Float?
+  status               String? @db.VarChar
+  delay_hours          Float?
+  lead_time            Int?
+  supplier_reliability Float?
+  quality_score        Float?
+  on_time_delivery     Float?
+  available_stock      Int?
+
+  @@index([id], map: "ix_shipment_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model subscriptions {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  account_id String    @db.Uuid
+  plan_id    String    @db.Uuid
+  status     String    @db.VarChar(20)
+  started_at DateTime? @default(now()) @db.Timestamp(6)
+  expires_at DateTime? @db.Timestamp(6)
+  accounts   accounts  @relation(fields: [account_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_subscription_account")
+  plans      plans     @relation(fields: [plan_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_subscription_plan")
+
+  @@index([account_id], map: "idx_subscriptions_account")
+  @@index([status], map: "idx_subscriptions_status")
+}
+
+model supplier {
+  id               Int     @id @default(autoincrement())
+  name             String? @db.VarChar
+  lead_time        Int?
+  cost_per_unit    Float?
+  reliability      Float?
+  rating           Float?
+  quality_score    Float?
+  on_time_delivery Float?
+  available_stock  Int?
+
+  @@index([id], map: "ix_supplier_id")
+}
+
+model supplier_recommendation {
+  id             Int     @id @default(autoincrement())
+  supplier       String? @db.VarChar
+  quantity       Int?
+  estimated_cost Float?
+  lead_time      Int?
+  score          Float?
+  reason         String? @db.VarChar
+
+  @@index([id], map: "ix_supplier_recommendation_id")
+}
+
+model top_selling_product {
+  id           Int     @id @default(autoincrement())
+  product_id   String? @db.VarChar
+  product_name String? @db.VarChar
+  units_sold   Int?
+
+  @@index([id], map: "ix_top_selling_product_id")
+}
+
+model usage_logs {
+  id               BigInt    @id @default(autoincrement())
+  api_key_id       String    @db.Uuid
+  account_id       String    @db.Uuid
+  endpoint         String?
+  status_code      Int?
+  response_time_ms Int?
+  created_at       DateTime? @default(now()) @db.Timestamp(6)
+  accounts         accounts  @relation(fields: [account_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_usage_account")
+  api_keys         api_keys  @relation(fields: [api_key_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_usage_api_key")
+
+  @@index([account_id, created_at(sort: Desc)], map: "idx_usage_account_time")
+  @@index([api_key_id, created_at(sort: Desc)], map: "idx_usage_api_key_time")
+}
+
+model warehouse_assignment {
+  id                    Int     @id @default(autoincrement())
+  recommended_warehouse String? @db.VarChar
+
+  @@index([id], map: "ix_warehouse_assignment_id")
+}
+
+model warehouse_capacity {
+  id          Int     @id @default(autoincrement())
+  utilization Float?
+  status      String? @db.VarChar
+
+  @@index([id], map: "ix_warehouse_capacity_id")
+}
