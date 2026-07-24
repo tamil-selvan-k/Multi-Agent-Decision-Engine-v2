@@ -1,12 +1,8 @@
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
-from schemas.recommendation import AgentRecommendation
-from typing import Any, Dict
-from pydantic import BaseModel, Field
 
 
 class OrchestrationRequest(BaseModel):
-
     session_id: str = Field(
         ...,
         description="Unique session ID"
@@ -21,16 +17,41 @@ class OrchestrationRequest(BaseModel):
         default_factory=dict,
         description="Additional scenario parameters"
     )
-    
-class EnterpriseDecision(BaseModel):
-    session_id: str
-    status: str
-    final_decision: str
-    agent_outputs: List[AgentRecommendation]
-    merged_at: str
 
-class OrchestrationResponse(BaseModel):
+
+class AgentPlanItem(BaseModel):
+    agent_name: str
+    task: str
+    parameters: Dict[str, Any] = Field(default_factory=dict)
+
+
+class ExecutionPlan(BaseModel):
+    agents: List[AgentPlanItem]
+
+
+class ValidationResult(BaseModel):
+    valid: bool
+    score: float
+    issues: List[str] = Field(default_factory=list)
+    feedback: str
+
+
+class AgentOutputDetail(BaseModel):
+    recommendation: str
+    confidence: float
+    metrics: Dict[str, Any] = Field(default_factory=dict)
+
+
+class AgentResultItem(BaseModel):
+    agent_name: str
+    status: str
+    attempt: int
+    validation: ValidationResult
+    output: AgentOutputDetail
+
+
+class OrchestrationResult(BaseModel):
     session_id: str
     status: str
-    message: str
-    result: Optional[EnterpriseDecision] = None
+    plan: ExecutionPlan
+    agent_results: List[AgentResultItem]
