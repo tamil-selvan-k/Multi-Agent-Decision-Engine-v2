@@ -29,6 +29,21 @@ export class DashboardService {
                     timestamp: new Date().toISOString(),
                 },
             ],
+            insights: [
+                { date: 'Jan', recommendations: 45, decisions: 32 },
+                { date: 'Feb', recommendations: 56, decisions: 40 },
+                { date: 'Mar', recommendations: 64, decisions: 50 },
+                { date: 'Apr', recommendations: 72, decisions: 55 },
+                { date: 'May', recommendations: 88, decisions: 70 },
+                { date: 'Jun', recommendations: 95, decisions: 82 }
+            ],
+            topAgents: [
+                { name: 'SalesAgent', actions: 42 },
+                { name: 'InventoryAgent', actions: 35 },
+                { name: 'FinanceAgent', actions: 28 },
+                { name: 'LogisticsAgent', actions: 19 }
+            ]
         };
     }
 }
+

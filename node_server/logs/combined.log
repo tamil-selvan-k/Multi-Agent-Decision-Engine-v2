@@ -90,3 +90,150 @@
 {"level":"info","message":"\u001b[0mGET /api/v1/dashboard \u001b[32m200\u001b[0m 2.678 ms - 650\u001b[0m","timestamp":"2026-07-24T13:18:36.605Z"}
 {"level":"info","message":"\u001b[0mGET /api/v1/dashboard \u001b[32m200\u001b[0m 4.089 ms - 650\u001b[0m","timestamp":"2026-07-24T13:18:36.622Z"}
 {"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T16:18:26.305Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T21:32:53.205Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 4840.528 ms - 1391\u001b[0m","timestamp":"2026-07-24T21:39:04.882Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 5305.579 ms - 380\u001b[0m","timestamp":"2026-07-24T21:39:04.907Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1876.093 ms - -\u001b[0m","timestamp":"2026-07-24T21:39:06.791Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T21:42:45.196Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 2434.887 ms - 380\u001b[0m","timestamp":"2026-07-24T21:43:31.584Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2029.482 ms - -\u001b[0m","timestamp":"2026-07-24T21:43:33.763Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[36m304\u001b[0m 3462.501 ms - -\u001b[0m","timestamp":"2026-07-24T21:46:29.865Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 5212.342 ms - -\u001b[0m","timestamp":"2026-07-24T21:46:31.353Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1847.536 ms - -\u001b[0m","timestamp":"2026-07-24T21:46:33.210Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1848.321 ms - -\u001b[0m","timestamp":"2026-07-24T21:46:37.338Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1837.343 ms - -\u001b[0m","timestamp":"2026-07-24T21:46:39.182Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 3445.737 ms - 1391\u001b[0m","timestamp":"2026-07-24T21:52:59.583Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[32m200\u001b[0m 1237.503 ms - 783\u001b[0m","timestamp":"2026-07-24T21:56:05.582Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 1036.157 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:06.628Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 901.990 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:07.541Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 978.156 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:08.531Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/documents?q= \u001b[32m200\u001b[0m 3478.065 ms - 585\u001b[0m","timestamp":"2026-07-24T21:56:08.669Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[32m200\u001b[0m 3890.685 ms - 657\u001b[0m","timestamp":"2026-07-24T21:56:08.869Z"}
+{"level":"info","message":"\u001b[0mGET /api/recommendations?impact=All+Impact&status=All+Status \u001b[32m200\u001b[0m 3775.708 ms - 1495\u001b[0m","timestamp":"2026-07-24T21:56:09.716Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 985.505 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:09.861Z"}
+{"level":"info","message":"\u001b[0mPATCH /api/workflows/wf-001 \u001b[32m200\u001b[0m 898.504 ms - 314\u001b[0m","timestamp":"2026-07-24T21:56:10.756Z"}
+{"level":"info","message":"\u001b[0mGET /api/recommendations?impact=All+Impact&status=All+Status \u001b[36m304\u001b[0m 989.948 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:10.850Z"}
+{"level":"info","message":"\u001b[0mPATCH /api/workflows/wf-001 \u001b[32m200\u001b[0m 889.203 ms - 314\u001b[0m","timestamp":"2026-07-24T21:56:17.699Z"}
+{"level":"info","message":"\u001b[0mPATCH /api/workflows/wf-001 \u001b[32m200\u001b[0m 884.441 ms - 314\u001b[0m","timestamp":"2026-07-24T21:56:18.179Z"}
+{"level":"info","message":"\u001b[0mPATCH /api/workflows/wf-001 \u001b[32m200\u001b[0m 889.623 ms - 314\u001b[0m","timestamp":"2026-07-24T21:56:19.396Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 1102.889 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:51.158Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/documents?q= \u001b[36m304\u001b[0m 1107.254 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:51.366Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 882.430 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:52.048Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 881.832 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:59.709Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/documents?q= \u001b[36m304\u001b[0m 884.229 ms - -\u001b[0m","timestamp":"2026-07-24T21:56:59.919Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 883.561 ms - -\u001b[0m","timestamp":"2026-07-24T21:57:00.600Z"}
+{"level":"info","message":"\u001b[0mGET /api/recommendations?impact=All+Impact&status=All+Status \u001b[36m304\u001b[0m 880.355 ms - -\u001b[0m","timestamp":"2026-07-24T21:57:04.441Z"}
+{"level":"info","message":"\u001b[0mGET /api/recommendations?impact=All+Impact&status=All+Status \u001b[36m304\u001b[0m 886.066 ms - -\u001b[0m","timestamp":"2026-07-24T21:57:05.337Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[32m200\u001b[0m 1102.078 ms - 783\u001b[0m","timestamp":"2026-07-24T21:57:06.457Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 884.252 ms - -\u001b[0m","timestamp":"2026-07-24T21:57:07.359Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:04:21.885Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:04:21.885Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 5191.654 ms - -\u001b[0m","timestamp":"2026-07-24T22:04:34.490Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:05:21.756Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:08:01.715Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:08:01.716Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:08:08.835Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:08:08.916Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 5663.535 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:25.342Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1772.484 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:27.270Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1799.945 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:29.090Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1765.233 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:30.874Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1775.820 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:34.117Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1832.502 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:35.977Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1997.755 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:49.350Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1761.491 ms - -\u001b[0m","timestamp":"2026-07-24T22:12:51.122Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2119.088 ms - -\u001b[0m","timestamp":"2026-07-24T22:13:27.278Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2122.322 ms - -\u001b[0m","timestamp":"2026-07-24T22:13:29.415Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1937.815 ms - -\u001b[0m","timestamp":"2026-07-24T22:13:38.994Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1808.011 ms - -\u001b[0m","timestamp":"2026-07-24T22:13:40.813Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 1181.897 ms - 1391\u001b[0m","timestamp":"2026-07-24T22:14:01.674Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[32m200\u001b[0m 2910.798 ms - 1618\u001b[0m","timestamp":"2026-07-24T22:15:04.803Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 1734.508 ms - -\u001b[0m","timestamp":"2026-07-24T22:15:06.549Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 4929.911 ms - -\u001b[0m","timestamp":"2026-07-24T22:15:06.831Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2093.961 ms - -\u001b[0m","timestamp":"2026-07-24T22:15:08.933Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[32m200\u001b[0m 1354.208 ms - 2711\u001b[0m","timestamp":"2026-07-24T22:15:15.343Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1741.466 ms - -\u001b[0m","timestamp":"2026-07-24T22:15:15.735Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[36m304\u001b[0m 1121.523 ms - -\u001b[0m","timestamp":"2026-07-24T22:15:16.474Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1759.073 ms - -\u001b[0m","timestamp":"2026-07-24T22:15:17.501Z"}
+{"level":"info","message":"\u001b[0mGET /api/integrations \u001b[32m200\u001b[0m 1300.295 ms - 748\u001b[0m","timestamp":"2026-07-24T22:16:37.041Z"}
+{"level":"info","message":"\u001b[0mGET /api/integrations \u001b[36m304\u001b[0m 894.226 ms - -\u001b[0m","timestamp":"2026-07-24T22:16:38.010Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[36m304\u001b[0m 1327.467 ms - -\u001b[0m","timestamp":"2026-07-24T22:16:49.358Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2044.348 ms - -\u001b[0m","timestamp":"2026-07-24T22:16:50.085Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[36m304\u001b[0m 1107.339 ms - -\u001b[0m","timestamp":"2026-07-24T22:16:50.491Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1810.010 ms - -\u001b[0m","timestamp":"2026-07-24T22:16:51.934Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1971.674 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:20.417Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/finance \u001b[32m200\u001b[0m 2945.300 ms - 1531\u001b[0m","timestamp":"2026-07-24T22:17:21.370Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1747.340 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:22.267Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/finance \u001b[36m304\u001b[0m 1794.534 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:23.177Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/inventory \u001b[32m200\u001b[0m 2033.745 ms - 1115\u001b[0m","timestamp":"2026-07-24T22:17:35.633Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/inventory \u001b[36m304\u001b[0m 1359.954 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:37.000Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 5029.136 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:38.634Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1809.164 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:40.452Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1821.680 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:46.393Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 2743.199 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:47.307Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1780.801 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:48.199Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 1785.414 ms - -\u001b[0m","timestamp":"2026-07-24T22:17:49.100Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2120.202 ms - -\u001b[0m","timestamp":"2026-07-24T22:20:11.040Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1799.797 ms - -\u001b[0m","timestamp":"2026-07-24T22:20:12.863Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[36m304\u001b[0m 4140.330 ms - -\u001b[0m","timestamp":"2026-07-24T22:20:12.935Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[36m304\u001b[0m 1217.263 ms - -\u001b[0m","timestamp":"2026-07-24T22:20:14.168Z"}
+{"level":"info","message":"\u001b[0mGET /api/integrations \u001b[36m304\u001b[0m 1151.935 ms - -\u001b[0m","timestamp":"2026-07-24T22:21:58.051Z"}
+{"level":"info","message":"\u001b[0mGET /api/integrations \u001b[36m304\u001b[0m 1059.014 ms - -\u001b[0m","timestamp":"2026-07-24T22:21:59.175Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/finance \u001b[36m304\u001b[0m 3065.470 ms - -\u001b[0m","timestamp":"2026-07-24T22:22:16.053Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/finance \u001b[36m304\u001b[0m 1880.602 ms - -\u001b[0m","timestamp":"2026-07-24T22:22:17.977Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/inventory \u001b[36m304\u001b[0m 2154.465 ms - -\u001b[0m","timestamp":"2026-07-24T22:23:14.833Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/inventory \u001b[36m304\u001b[0m 1803.849 ms - -\u001b[0m","timestamp":"2026-07-24T22:23:16.716Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 3214.631 ms - -\u001b[0m","timestamp":"2026-07-24T22:24:25.147Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 1835.590 ms - -\u001b[0m","timestamp":"2026-07-24T22:24:27.008Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:25:36.919Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:25:37.527Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 4803.363 ms - 1391\u001b[0m","timestamp":"2026-07-24T22:28:21.498Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 7998.500 ms - -\u001b[0m","timestamp":"2026-07-24T22:28:24.474Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 4991.535 ms - 380\u001b[0m","timestamp":"2026-07-24T22:28:26.241Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1803.733 ms - -\u001b[0m","timestamp":"2026-07-24T22:28:28.057Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 900.265 ms - 1391\u001b[0m","timestamp":"2026-07-24T22:28:37.606Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[32m200\u001b[0m 1138.529 ms - 783\u001b[0m","timestamp":"2026-07-24T22:28:44.051Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 911.479 ms - -\u001b[0m","timestamp":"2026-07-24T22:28:44.971Z"}
+{"level":"info","message":"\u001b[0mPATCH /api/workflows/wf-001 \u001b[32m200\u001b[0m 914.637 ms - 314\u001b[0m","timestamp":"2026-07-24T22:28:47.289Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[32m200\u001b[0m 1228.853 ms - 687\u001b[0m","timestamp":"2026-07-24T22:29:04.816Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/documents?q= \u001b[32m200\u001b[0m 1116.204 ms - 472\u001b[0m","timestamp":"2026-07-24T22:29:04.916Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 896.568 ms - -\u001b[0m","timestamp":"2026-07-24T22:29:05.719Z"}
+{"level":"info","message":"\u001b[0mGET /api/recommendations?impact=All+Impact&status=All+Status \u001b[32m200\u001b[0m 897.939 ms - 1495\u001b[0m","timestamp":"2026-07-24T22:29:14.026Z"}
+{"level":"info","message":"\u001b[0mGET /api/recommendations?impact=All+Impact&status=All+Status \u001b[36m304\u001b[0m 901.733 ms - -\u001b[0m","timestamp":"2026-07-24T22:29:14.939Z"}
+{"level":"info","message":"\u001b[0mGET /api/dashboard/top-agent-activity \u001b[32m200\u001b[0m 1096.188 ms - 246\u001b[0m","timestamp":"2026-07-24T22:29:31.914Z"}
+{"level":"info","message":"\u001b[0mGET /api/dashboard/insights \u001b[32m200\u001b[0m 1121.749 ms - 402\u001b[0m","timestamp":"2026-07-24T22:29:31.936Z"}
+{"level":"info","message":"\u001b[0mGET /api/dashboard/insights \u001b[36m304\u001b[0m 873.550 ms - -\u001b[0m","timestamp":"2026-07-24T22:29:32.818Z"}
+{"level":"info","message":"\u001b[0mGET /api/dashboard/top-agent-activity \u001b[36m304\u001b[0m 903.076 ms - -\u001b[0m","timestamp":"2026-07-24T22:29:32.835Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[36m304\u001b[0m 904.785 ms - -\u001b[0m","timestamp":"2026-07-24T22:29:37.800Z"}
+{"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[32m200\u001b[0m 897.543 ms - 489\u001b[0m","timestamp":"2026-07-24T22:29:40.936Z"}
+{"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 901.333 ms - -\u001b[0m","timestamp":"2026-07-24T22:29:41.850Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[32m200\u001b[0m 1604.208 ms - 2711\u001b[0m","timestamp":"2026-07-24T22:30:12.627Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/sales \u001b[36m304\u001b[0m 1122.181 ms - -\u001b[0m","timestamp":"2026-07-24T22:30:13.763Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 6422.829 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:02.618Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 5043.439 ms - 380\u001b[0m","timestamp":"2026-07-24T22:54:03.088Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 5115.261 ms - 380\u001b[0m","timestamp":"2026-07-24T22:54:03.634Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 910.762 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:04.002Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/documents?q= \u001b[36m304\u001b[0m 935.323 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:04.249Z"}
+{"level":"info","message":"\u001b[0mGET /api/knowledge/categories \u001b[36m304\u001b[0m 881.573 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:04.891Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1807.296 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:05.451Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 5016.427 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:07.168Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[32m200\u001b[0m 3383.243 ms - 783\u001b[0m","timestamp":"2026-07-24T22:54:07.266Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 5297.698 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:07.434Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 894.704 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:08.183Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 1802.279 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:08.979Z"}
+{"level":"info","message":"\u001b[0mGET /api/intelligence/logistics \u001b[36m304\u001b[0m 1803.966 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:09.249Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[36m304\u001b[0m 900.382 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:10.380Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 895.553 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:12.766Z"}
+{"level":"info","message":"\u001b[0mGET /api/workflows \u001b[36m304\u001b[0m 901.406 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:13.675Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[36m304\u001b[0m 923.880 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:13.786Z"}
+{"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 1132.233 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:23.898Z"}
+{"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 900.892 ms - -\u001b[0m","timestamp":"2026-07-24T22:54:24.806Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[36m304\u001b[0m 1148.903 ms - -\u001b[0m","timestamp":"2026-07-24T22:55:28.139Z"}
+{"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 912.224 ms - -\u001b[0m","timestamp":"2026-07-24T22:55:30.017Z"}
+{"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 914.780 ms - -\u001b[0m","timestamp":"2026-07-24T22:55:30.942Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:58:06.838Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T23:13:46.107Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 7386.465 ms - 1391\u001b[0m","timestamp":"2026-07-24T23:13:55.131Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 7805.377 ms - 380\u001b[0m","timestamp":"2026-07-24T23:13:55.292Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2139.305 ms - -\u001b[0m","timestamp":"2026-07-24T23:13:57.462Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2026-07-24T23:14:02.808Z"}
