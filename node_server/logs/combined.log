@@ -232,3 +232,8 @@
 {"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 912.224 ms - -\u001b[0m","timestamp":"2026-07-24T22:55:30.017Z"}
 {"level":"info","message":"\u001b[0mGET /api/chat/messages \u001b[36m304\u001b[0m 914.780 ms - -\u001b[0m","timestamp":"2026-07-24T22:55:30.942Z"}
 {"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T22:58:06.838Z"}
+{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T23:13:46.107Z"}
+{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 7386.465 ms - 1391\u001b[0m","timestamp":"2026-07-24T23:13:55.131Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 7805.377 ms - 380\u001b[0m","timestamp":"2026-07-24T23:13:55.292Z"}
+{"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2139.305 ms - -\u001b[0m","timestamp":"2026-07-24T23:13:57.462Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2026-07-24T23:14:02.808Z"}
