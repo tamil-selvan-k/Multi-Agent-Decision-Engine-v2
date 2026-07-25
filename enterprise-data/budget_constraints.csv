@@ -1,0 +1,5 @@
+budget_id,fiscal_year,quarter,department,project_name,allocated_budget,max_allowed_overrun_pct,cost_center,status,approval_authority
+BGT-2025-Q1-SALES,2025,Q1,Sales,Regional Sales Expansion,350000.0,5.0,CC-101,Approved,CFO
+BGT-2025-Q1-INV,2025,Q1,Inventory,Stock Replenishment & Storage,500000.0,8.0,CC-102,Approved,VP Supply Chain
+BGT-2025-Q1-FIN,2025,Q1,Finance,Auditing & System Upgrades,150000.0,3.0,CC-103,Approved,CFO
+BGT-2025-Q1-LOG,2025,Q1,Logistics,Fleet Route Optimization,280000.0,10.0,CC-104,Approved,Operations Director

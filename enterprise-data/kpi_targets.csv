@@ -1,0 +1,5 @@
+kpi_id,kpi_name,department,target_value,unit,measurement_frequency,minimum_acceptable_threshold,owner_role
+KPI-001,Quarterly Revenue Growth,Sales,18.0,Percentage,Quarterly,12.0,VP of Sales
+KPI-002,On-Time Delivery Rate (OTD),Logistics,95.0,Percentage,Monthly,90.0,Logistics Manager
+KPI-003,Warehouse Capacity Utilization,Inventory,85.0,Percentage,Weekly,95.0,Warehouse Operations Lead
+KPI-004,Operating Profit Margin,Finance,22.0,Percentage,Quarterly,15.0,Finance Director
