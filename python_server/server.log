@@ -1,18 +1,55 @@
-{"time": "2026-03-15 19:01:58,281", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session 123"}
-{"time": "2026-03-15 19:01:58,544", "level": "INFO", "module": "multi_agent", "message": "Running enterprise negotiation for session: 123"}
-{"time": "2026-07-25 07:58:01,253", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
-{"time": "2026-07-25 07:58:14,607", "level": "INFO", "module": "multi_agent", "message": "Starting orchestration for: Sales are increasing rapidly, inventory is low, and warehouse capacity is almost full. Analyze the situation and recommend whether we should increase production and reorder inventory."}
-{"time": "2026-07-25 07:58:24,886", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test123"}
-{"time": "2026-07-25 07:58:31,288", "level": "INFO", "module": "multi_agent", "message": "Planner returned plan: {'required_capabilities': [{'capability': 'sales', 'task': 'Analyze sales growth and recommend production levels.', 'parameters': {'sales_growth': 25}}, {'capability': 'inventory', 'task': 'Analyze current inventory and determine reorder requirements.', 'parameters': {'current_inventory': 1500}}, {'capability': 'inventory', 'task': 'Analyze warehouse capacity.', 'parameters': {'warehouse_capacity': 2000, 'current_inventory': 1500}}, {'capability': 'finance', 'task': 'Estimate costs of increasing production and reordering inventory.', 'parameters': {'priority': 'high'}}]}"}
-{"time": "2026-07-25 07:58:31,288", "level": "INFO", "module": "multi_agent", "message": "Running SalesAgent for capability 'sales'"}
-{"time": "2026-07-25 07:58:36,306", "level": "INFO", "module": "multi_agent", "message": "Starting orchestration for: Analyze current inventory and determine reorder requirements"}
-{"time": "2026-07-25 07:58:43,535", "level": "INFO", "module": "multi_agent", "message": "Running InventoryAgent for capability 'inventory'"}
-{"time": "2026-07-25 07:58:50,988", "level": "INFO", "module": "multi_agent", "message": "Planner returned plan: {'required_capabilities': [{'capability': 'inventory', 'task': 'Analyze current inventory and determine reorder requirements.', 'parameters': {}}]}"}
-{"time": "2026-07-25 07:58:50,988", "level": "INFO", "module": "multi_agent", "message": "Running InventoryAgent for capability 'inventory'"}
-{"time": "2026-07-25 07:59:05,651", "level": "INFO", "module": "multi_agent", "message": "Running InventoryAgent for capability 'inventory'"}
-{"time": "2026-07-25 07:59:24,019", "level": "INFO", "module": "multi_agent", "message": "Running FinanceAgent for capability 'finance'"}
-{"time": "2026-07-25 07:59:34,695", "level": "ERROR", "module": "multi_agent", "message": "Unhandled Exception: POST http://localhost:8000/api/v1/orchestrate - litellm.RateLimitError: RateLimitError: GroqException - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 10907, Requested 1741. Please try again in 3.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
-"}
+INFO:     Started server process [24280]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('0.0.0DATABASE_URL = postgresql://neondb_owner:npg_uH2lBJ4aUMCm@ep-muddy-mode-aim0bumy-pooler.c-4.us-east-1.aws.neon.tech/multi-agent?sslmode=require&channel_binding=require
+2026-07-25 07:58:01 [INFO]: Received orchestration trigger for session test-session-001
+2026-07-25 07:58:14 [INFO]: Starting orchestration for: Sales are increasing rapidly, inventory is low, and warehouse capacity is almost full. Analyze the situation and recommend whether we should increase production and reorder inventory.
+2026-07-25 07:58:31 [INFO]: Planner returned plan: {'required_capabilities': [{'capability': 'sales', 'task': 'Analyze sales growth and recommend production levels.', 'parameters': {'sales_growth': 25}}, {'capability': 'inventory', 'task': 'Analyze current inventory and determine reorder requirements.', 'parameters': {'current_inventory': 1500}}, {'capability': 'inventory', 'task': 'Analyze warehouse capacity.', 'parameters': {'warehouse_capacity': 2000, 'current_inventory': 1500}}, {'capability': 'finance', 'task': 'Estimate costs of increasing production and reordering inventory.', 'parameters': {'priority': 'high'}}]}
+2026-07-25 07:58:31 [INFO]: Running SalesAgent for capability 'sales'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='```json\...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content=None, rol...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='to...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+2026-07-25 07:58:43 [INFO]: Running InventoryAgent for capability 'inventory'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='{\n    "...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+2026-07-25 07:59:05 [INFO]: Running InventoryAgent for capability 'inventory'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='{\n    "...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content=None, rol...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='to...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+2026-07-25 07:59:24 [INFO]: Running FinanceAgent for capability 'finance'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='{\n    "...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content=None, rol...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='to...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content=None, rol...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='to...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content=None, rol...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='to...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+2026-07-25 07:59:34 [ERROR]: Unhandled Exception: POST http://localhost:8000/api/v1/orchestrate - litellm.RateLimitError: RateLimitError: GroqException - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 10907, Requested 1741. Please try again in 3.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
 Traceback (most recent call last):
   File "C:\Users\DELL\AppData\Local\Programs\Python\Python310\lib\site-packages\litellm\llms\custom_httpx\llm_http_handler.py", line 176, in _make_common_async_call
     response = await async_httpx_client.post(
@@ -130,12 +167,8 @@ Traceback (most recent call last):
     raise RateLimitError(
 litellm.exceptions.RateLimitError: litellm.RateLimitError: RateLimitError: GroqException - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 10907, Requested 1741. Please try again in 3.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
 
-{"time": "2026-07-25 07:59:35,679", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test124"}
-{"time": "2026-07-25 07:59:35,681", "level": "INFO", "module": "multi_agent", "message": "Starting orchestration for: Analyze sales data and forecast demand"}
-{"time": "2026-07-25 07:59:35,957", "level": "INFO", "module": "multi_agent", "message": "Planner returned plan: {'required_capabilities': [{'capability': 'sales', 'task': 'Analyze sales data and perform demand forecasting.', 'parameters': {}}]}"}
-{"time": "2026-07-25 07:59:35,957", "level": "INFO", "module": "multi_agent", "message": "Running SalesAgent for capability 'sales'"}
-{"time": "2026-07-25 07:59:36,040", "level": "ERROR", "module": "multi_agent", "message": "Unhandled Exception: POST http://localhost:8001/api/v1/orchestrate - litellm.RateLimitError: RateLimitError: GroqException - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11015, Requested 1019. Please try again in 170ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
-"}
+INFO:     127.0.0.1:49675 - "POST /api/v1/orchestrate HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
 Traceback (most recent call last):
   File "C:\Users\DELL\AppData\Local\Programs\Python\Python310\lib\site-packages\litellm\llms\custom_httpx\llm_http_handler.py", line 176, in _make_common_async_call
     response = await async_httpx_client.post(
@@ -161,15 +194,27 @@ Traceback (most recent call last):
     raise self._handle_error(e=e, provider_config=provider_config)
   File "C:\Users\DELL\AppData\Local\Programs\Python\Python310\lib\site-packages\litellm\llms\custom_httpx\llm_http_handler.py", line 4646, in _handle_error
     raise provider_config.get_error_class(
-litellm.llms.openai.common_utils.OpenAIError: {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11015, Requested 1019. Please try again in 170ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+litellm.llms.openai.common_utils.OpenAIError: {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 10907, Requested 1741. Please try again in 3.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
 
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
   File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
     await self.app(scope, receive, _send)
-  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\middleware\cors.py", line 95, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\middleware\cors.py", line 153, in simple_response
     await self.app(scope, receive, send)
   File "C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
@@ -249,11 +294,32 @@ Traceback (most recent call last):
     raise e
   File "C:\Users\DELL\AppData\Local\Programs\Python\Python310\lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 389, in exception_type
     raise RateLimitError(
-litellm.exceptions.RateLimitError: litellm.RateLimitError: RateLimitError: GroqException - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11015, Requested 1019. Please try again in 170ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+litellm.exceptions.RateLimitError: litellm.RateLimitError: RateLimitError: GroqException - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kybfv6xpfnya0wrjn5p1sv8c` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 10907, Requested 1741. Please try again in 3.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
 
-{"time": "2026-07-25 07:59:58,887", "level": "INFO", "module": "multi_agent", "message": "Received orchestration trigger for session test-session-001"}
-{"time": "2026-07-25 07:59:58,896", "level": "INFO", "module": "multi_agent", "message": "Starting orchestration for: Sales are increasing rapidly, inventory is low, and warehouse capacity is almost full. Analyze the situation and recommend whether we should increase production and reorder inventory."}
-{"time": "2026-07-25 07:59:59,447", "level": "INFO", "module": "multi_agent", "message": "Planner returned plan: {'required_capabilities': [{'capability': 'sales', 'task': 'Analyze sales growth and recommend production levels.', 'parameters': {'sales_growth': 25, 'priority': 'high'}}, {'capability': 'inventory', 'task': 'Analyze current inventory and determine reorder requirements.', 'parameters': {'current_inventory': 1500, 'priority': 'high'}}, {'capability': 'inventory', 'task': 'Analyze warehouse capacity.', 'parameters': {'warehouse_capacity': 2000, 'current_inventory': 1500, 'priority': 'high'}}]}"}
-{"time": "2026-07-25 07:59:59,448", "level": "INFO", "module": "multi_agent", "message": "Running SalesAgent for capability 'sales'"}
-{"time": "2026-07-25 08:00:11,524", "level": "INFO", "module": "multi_agent", "message": "Running InventoryAgent for capability 'inventory'"}
-{"time": "2026-07-25 08:00:25,690", "level": "INFO", "module": "multi_agent", "message": "Running InventoryAgent for capability 'inventory'"}
+2026-07-25 07:59:58 [INFO]: Received orchestration trigger for session test-session-001
+2026-07-25 07:59:58 [INFO]: Starting orchestration for: Sales are increasing rapidly, inventory is low, and warehouse capacity is almost full. Analyze the situation and recommend whether we should increase production and reorder inventory.
+2026-07-25 07:59:59 [INFO]: Planner returned plan: {'required_capabilities': [{'capability': 'sales', 'task': 'Analyze sales growth and recommend production levels.', 'parameters': {'sales_growth': 25, 'priority': 'high'}}, {'capability': 'inventory', 'task': 'Analyze current inventory and determine reorder requirements.', 'parameters': {'current_inventory': 1500, 'priority': 'high'}}, {'capability': 'inventory', 'task': 'Analyze warehouse capacity.', 'parameters': {'warehouse_capacity': 2000, 'current_inventory': 1500, 'priority': 'high'}}]}
+2026-07-25 07:59:59 [INFO]: Running SalesAgent for capability 'sales'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='```json\...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+2026-07-25 08:00:11 [INFO]: Running InventoryAgent for capability 'inventory'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='{\n    "...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+2026-07-25 08:00:25 [INFO]: Running InventoryAgent for capability 'inventory'
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='{\n    "...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content=None, rol...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='to...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+C:\Users\DELL\Docs\Multi-Agent-Decision-Engine\python_server\.venv\lib\site-packages\pydantic\main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected 10 fields but got 5: Expected `Message` - serialized value may not be as expected [field_name='message', input_value=Message(content='{\n    "...er_specific_fields=None), input_type=Message])
+  PydanticSerializationUnexpectedValue(Expected `StreamingChoices` - serialized value may not be as expected [field_name='choices', input_value=Choices(finish_reason='st...r_specific_fields=None)), input_type=Choices])
+  return self.__pydantic_serializer__.to_python(
+INFO:     127.0.0.1:49902 - "POST /api/v1/orchestrate HTTP/1.1" 200 OK

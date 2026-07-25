@@ -7,13 +7,13 @@ from sklearn.ensemble import IsolationForest
 from sklearn.linear_model import LinearRegression
 import numpy as np
 
-def fetch_budget(dummy_arg: str = None, **kwargs):
+def fetch_budget(**kwargs):
     """
     Fetch department budgets and current spending.
     Initializes FinancialHistory and BudgetData if empty.
 
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
+    Returns:
+        dict: department budgets and current spending.
     """
 
     db = SessionLocal()
@@ -101,12 +101,12 @@ def fetch_budget(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def anomaly_detection(dummy_arg: str = None, **kwargs):
+def anomaly_detection(**kwargs):
     """
     Detect anomalous spending using Isolation Forest.
 
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
+    Returns:
+        dict: anomaly detection results.
     """
 
     db = SessionLocal()
@@ -168,12 +168,12 @@ def anomaly_detection(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def cost_estimator(dummy_arg: str = None, **kwargs):
+def cost_estimator(**kwargs):
     """
     Predict next month's operational cost using Linear Regression.
 
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
+    Returns:
+        dict: predicted expense for each department.
     """
 
     db = SessionLocal()

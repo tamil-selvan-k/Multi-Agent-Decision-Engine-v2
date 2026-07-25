@@ -11,12 +11,9 @@ def get_db():
     finally:
         db.close()
 
-def fetch_sales_data(dummy_arg: str = None, **kwargs):
+def fetch_sales_data(**kwargs):
     """
     Fetch sales data. If the table is empty, populate it with sample records.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         list: List of sales records.
@@ -144,12 +141,9 @@ def fetch_sales_data(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def forecast_demand(dummy_arg: str = None, **kwargs):
+def forecast_demand(**kwargs):
     """
     Forecast sales demand based on history.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
     db = SessionLocal()
 
@@ -213,12 +207,9 @@ def forecast_demand(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def calculate_growth(dummy_arg: str = None, **kwargs):
+def calculate_growth(**kwargs):
     """
     Calculate sales growth rate.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
     db = SessionLocal()
 
@@ -268,12 +259,9 @@ def calculate_growth(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def recommend_production(dummy_arg: str = None, **kwargs):
+def recommend_production(**kwargs):
     """
     Recommend production target change based on forecast and growth.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
     db = SessionLocal()
 
@@ -339,12 +327,9 @@ def recommend_production(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def revenue_analysis(dummy_arg: str = None, **kwargs):
+def revenue_analysis(**kwargs):
     """
     Analyze revenue metrics from sales data.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         dict: Revenue statistics.
@@ -392,12 +377,9 @@ def revenue_analysis(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def top_selling_products(dummy_arg: str = None, **kwargs):
+def top_selling_products(**kwargs):
     """
     Identify the top-selling product.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         dict: Product with the highest units sold.

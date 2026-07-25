@@ -2,11 +2,8 @@ from sqlalchemy.orm import Session
 from app.core.database import SessionLocal
 from app import models
 
-def fetch_shipments(dummy_arg: str = None, **kwargs):
+def fetch_shipments(**kwargs):
     """Fetch current shipments.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         list: list of dicts with shipment info.
@@ -228,11 +225,8 @@ def fetch_shipments(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def optimize_routes(dummy_arg: str = None, **kwargs):
+def optimize_routes(**kwargs):
     """Optimize delivery routes based on shortest total distance.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         dict: best route and total distance.
@@ -287,11 +281,8 @@ def optimize_routes(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def delivery_eta(dummy_arg: str = None, **kwargs):
+def delivery_eta(**kwargs):
     """Estimate average delivery time and delay probability.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         dict: estimated delivery hours and delay probability.

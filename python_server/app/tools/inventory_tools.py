@@ -4,13 +4,10 @@ from app import models
 from sklearn.linear_model import LinearRegression
 import numpy as np
 
-def fetch_inventory(dummy_arg: str = None, **kwargs):
+def fetch_inventory(**kwargs):
     """
     Fetch inventory data from database.
     Seeds InventoryHistory if empty and updates InventoryData.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()
@@ -81,12 +78,9 @@ def fetch_inventory(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def demand_forecast(dummy_arg: str = None, **kwargs):
+def demand_forecast(**kwargs):
     """
     Predict next month's inventory demand using Linear Regression.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()
@@ -123,12 +117,9 @@ def demand_forecast(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def warehouse_capacity(dummy_arg: str = None, **kwargs):
+def warehouse_capacity(**kwargs):
     """
     Calculate warehouse utilization.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()
@@ -171,12 +162,9 @@ def warehouse_capacity(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def reorder_recommendation(dummy_arg: str = None, **kwargs):
+def reorder_recommendation(**kwargs):
     """
     Generate reorder recommendation based on inventory and predicted demand.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()
@@ -230,12 +218,9 @@ def reorder_recommendation(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
 
-def supplier_recommendation(dummy_arg: str = None, **kwargs):
+def supplier_recommendation(**kwargs):
     """
     Recommend the best supplier based on scores.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()
@@ -360,13 +345,10 @@ def supplier_recommendation(dummy_arg: str = None, **kwargs):
 
         db.close()
 
-def inventory_risk_score(dummy_arg: str = None, **kwargs):
+def inventory_risk_score(**kwargs):
     """
     Calculate inventory risk based on inventory, warehouse,
     reorder requirement and supplier performance.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()
@@ -436,12 +418,9 @@ def inventory_risk_score(dummy_arg: str = None, **kwargs):
     finally:
         db.close()
         
-def inventory_summary(dummy_arg: str = None, **kwargs):
+def inventory_summary(**kwargs):
     """
     Generate an overall inventory summary.
-
-    Args:
-        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
 
     db = SessionLocal()

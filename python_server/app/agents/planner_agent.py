@@ -37,31 +37,31 @@ business request and create an execution plan.
 
 You must determine:
 
-1. Which domain agents need to be invoked.
-2. What exact task should be assigned to each agent.
-3. What parameters should be passed to each agent.
+1. Which domain capabilities need to be invoked.
+2. What exact task should be assigned to each capability.
+3. What parameters should be passed to each capability.
 
-Available Agents:
+Available Capabilities:
 
-InventoryAgent:
+inventory:
 - Analyzes inventory levels.
 - Analyzes warehouse capacity.
 - Optimizes inventory.
 - Determines reorder requirements.
 
-LogisticsAgent:
+logistics:
 - Analyzes shipments.
 - Optimizes delivery routes.
 - Calculates delivery ETA.
 - Determines warehouse assignment.
 
-SalesAgent:
+sales:
 - Analyzes sales data.
 - Performs demand forecasting.
 - Calculates growth.
 - Recommends production levels.
 
-FinanceAgent:
+finance:
 - Analyzes budgets.
 - Detects financial anomalies.
 - Estimates costs.
@@ -69,8 +69,8 @@ FinanceAgent:
 
 Planning Rules:
 
-- Only select agents relevant to the user's request.
-- If multiple domains are involved, select multiple agents.
+- Only select capabilities relevant to the user's request.
+- If multiple domains are involved, select multiple capabilities.
 - The task must be specific and actionable.
 - Pass relevant information from the user request
   through the parameters.
@@ -83,9 +83,9 @@ Return ONLY valid JSON.
 Required format:
 
 {
-    "agents": [
+    "required_capabilities": [
         {
-            "agent_name": "InventoryAgent",
+            "capability": "inventory",
             "task": "Analyze current inventory and determine reorder requirements.",
             "parameters": {}
         }
@@ -165,9 +165,9 @@ Create an execution plan for this request.
 
 Determine:
 
-1. Which agents should be invoked.
-2. The exact task assigned to each agent.
-3. The parameters passed to each agent.
+1. Which capabilities should be invoked.
+2. The exact task assigned to each capability.
+3. The parameters passed to each capability.
 
 Return ONLY valid JSON.
 """
@@ -257,21 +257,41 @@ Return ONLY valid JSON.
         final_text = final_text.strip()
 
         # ----------------------------------
-        # Parse JSON
+        # Extract JSON from the response (in case of extra text)
         # ----------------------------------
-
-        try:
-
-            plan = json.loads(
-                final_text
+        import re
+        # Try to find a JSON object in the text
+        json_match = re.search(r'\{.*\}', final_text, re.DOTALL)
+        if json_match:
+            json_str = json_match.group(0)
+            try:
+                plan = json.loads(json_str)
+            except json.JSONDecodeError as e:
+                # Fallback: try to find the first { and last }
+                start = final_text.find('{')
+                end = final_text.rfind('}')
+                if start != -1 and end != -1 and start < end:
+                    json_str = final_text[start:end+1]
+                    try:
+                        plan = json.loads(json_str)
+                    except json.JSONDecodeError as e2:
+                        raise RuntimeError(
+                            f"PlannerAgent returned invalid JSON (regex matched but json.loads failed, fallback also failed): {final_text}"
+                        ) from e2
+                else:
+                    raise RuntimeError(
+                        f"PlannerAgent returned invalid JSON (regex matched but no valid braces found): {final_text}"
+                    )
+        else:
+            # If no braces found, it's not valid JSON
+            raise RuntimeError(
+                f"PlannerAgent returned invalid JSON (no braces found): {final_text}"
             )
 
-        except json.JSONDecodeError as e:
-
-            raise RuntimeError(
-                f"PlannerAgent returned "
-                f"invalid JSON: {final_text}"
-            ) from e
+        # ----------------------------------
+        # Parse JSON (already done above, but we keep the structure for clarity)
+        # ----------------------------------
+        # Note: the parsing is done in the block above, so we skip the original try-except.
 
         # ----------------------------------
         # Validate Plan Structure
@@ -287,11 +307,30 @@ Return ONLY valid JSON.
                 "must be a JSON object"
             )
 
-        if "agents" not in plan:
+        if "required_capabilities" not in plan:
 
             raise RuntimeError(
                 "PlannerAgent response "
-                "does not contain 'agents'"
+                "does not contain 'required_capabilities'"
             )
+
+        # Validate each capability entry
+        for cap_entry in plan["required_capabilities"]:
+            if not isinstance(cap_entry, dict):
+                raise RuntimeError(
+                    "Each required_capability entry must be a dictionary"
+                )
+            required_keys = {"capability", "task", "parameters"}
+            if not required_keys.issubset(cap_entry.keys()):
+                missing = required_keys - cap_entry.keys()
+                raise RuntimeError(
+                    f"Missing required keys in capability entry: {missing}"
+                )
+            if not isinstance(cap_entry["capability"], str):
+                raise RuntimeError("Capability must be a string")
+            if not isinstance(cap_entry["task"], str):
+                raise RuntimeError("Task must be a string")
+            if not isinstance(cap_entry["parameters"], dict):
+                raise RuntimeError("Parameters must be a dictionary")
 
         return plan
