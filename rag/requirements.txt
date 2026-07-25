@@ -1,0 +1,7 @@
+pandas
+langchain
+sentence-transformers
+sqlalchemy
+pgvector
+psycopg2-binary
+python-dotenv
