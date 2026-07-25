@@ -1,8 +1,11 @@
+import os
+
 from agents.inventory_agent import inventory_agent
 from agents.logistics_agent import logistics_agent
 from agents.sales_agent import sales_agent
 from agents.finance_agent import finance_agent
 
+MODEL = os.getenv("MODEL")
 
 AGENT_REGISTRY = {
     "InventoryAgent": inventory_agent,

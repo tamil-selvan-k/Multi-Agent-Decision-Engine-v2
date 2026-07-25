@@ -11,9 +11,12 @@ def get_db():
     finally:
         db.close()
 
-def fetch_sales_data(**kwargs):
+def fetch_sales_data(dummy_arg: str = None, **kwargs):
     """
     Fetch sales data. If the table is empty, populate it with sample records.
+
+    Args:
+        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         list: List of sales records.
@@ -141,9 +144,12 @@ def fetch_sales_data(**kwargs):
     finally:
         db.close()
 
-def forecast_demand(**kwargs):
+def forecast_demand(dummy_arg: str = None, **kwargs):
     """
     Forecast sales demand based on history.
+
+    Args:
+        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
     db = SessionLocal()
 
@@ -207,9 +213,12 @@ def forecast_demand(**kwargs):
     finally:
         db.close()
 
-def calculate_growth(**kwargs):
+def calculate_growth(dummy_arg: str = None, **kwargs):
     """
     Calculate sales growth rate.
+
+    Args:
+        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
     db = SessionLocal()
 
@@ -259,9 +268,12 @@ def calculate_growth(**kwargs):
     finally:
         db.close()
 
-def recommend_production(**kwargs):
+def recommend_production(dummy_arg: str = None, **kwargs):
     """
     Recommend production target change based on forecast and growth.
+
+    Args:
+        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
     """
     db = SessionLocal()
 
@@ -327,9 +339,12 @@ def recommend_production(**kwargs):
     finally:
         db.close()
 
-def revenue_analysis(**kwargs):
+def revenue_analysis(dummy_arg: str = None, **kwargs):
     """
     Analyze revenue metrics from sales data.
+
+    Args:
+        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         dict: Revenue statistics.
@@ -377,9 +392,12 @@ def revenue_analysis(**kwargs):
     finally:
         db.close()
 
-def top_selling_products(**kwargs):
+def top_selling_products(dummy_arg: str = None, **kwargs):
     """
     Identify the top-selling product.
+
+    Args:
+        dummy_arg (str, optional): A placeholder parameter to avoid empty argument parsing bugs.
 
     Returns:
         dict: Product with the highest units sold.

@@ -6,15 +6,57 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from schemas.recommendation import AgentRecommendation
+
+def extract_and_parse_json(text: str, agent_name: str) -> Dict[str, Any]:
+    """
+    Extracts and parses a JSON object from text, handling markdown fences and surrounding explanation text.
+    """
+    if not text:
+        raise RuntimeError(f"{agent_name} did not return a response")
+
+    text_clean = text.strip()
+
+    # 1. Try splitting on ```json ... ```
+    if "```json" in text_clean:
+        try:
+            parts = text_clean.split("```json")
+            if len(parts) > 1:
+                subparts = parts[1].split("```")
+                text_clean = subparts[0].strip()
+        except Exception:
+            pass
+    # 2. Try splitting on ``` ... ``` if ```json is not there
+    elif "```" in text_clean:
+        try:
+            parts = text_clean.split("```")
+            if len(parts) > 1:
+                subparts = parts[1].split("```")
+                text_clean = subparts[0].strip()
+        except Exception:
+            pass
+
+    # 3. Try to locate the JSON boundaries using { and }
+    if not (text_clean.startswith("{") and text_clean.endswith("}")):
+        start = text_clean.find("{")
+        end = text_clean.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            text_clean = text_clean[start:end+1].strip()
+
+    try:
+        return json.loads(text_clean)
+    except json.JSONDecodeError as e:
+        raise RuntimeError(
+            f"{agent_name} returned invalid JSON: {text}"
+        ) from e
 
 
 async def run_adk_agent(
     agent,
     agent_name: str,
     task: str,
-    parameters: Dict[str, Any]
-) -> AgentRecommendation:
+    parameters: Dict[str, Any],
+    attempt: int = 1
+) -> Dict[str, Any]:
 
     # ---------------------------------
     # Create ADK session service
@@ -52,18 +94,24 @@ async def run_adk_agent(
     # Build Prompt
     # ---------------------------------
 
+    retry_info = ""
+    if attempt > 1:
+        retry_info = f"""
+RETRY ATTEMPT: {attempt}
+Previous attempt failed validation. Please address the validation feedback in your analysis.
+"""
+
     prompt = f"""
 You are the {agent_name}.
 
-You are executing a specific task assigned
-by the Planner Agent.
+You are executing a specific task assigned by the Planner Agent.
 
 TASK:
 {task}
 
 PARAMETERS:
 {json.dumps(parameters, default=str)}
-
+{retry_info}
 Execute the task using your available tools.
 
 Analyze the tool results carefully.
@@ -72,17 +120,20 @@ Once you have finished executing all necessary tools, output your final recommen
 
 {{
     "agent_name": "{agent_name}",
+    "status": "completed",
     "recommendation": "Your recommendation",
     "confidence": 0.0,
-    "metrics": {{}}
+    "metrics": {{}},
+    "task": "{task}",
+    "attempt": {attempt}
 }}
 
 Rules:
-
 - Do not invent data.
 - Use the available tools when necessary.
 - Base your recommendation on actual tool results.
 - Confidence must be a number between 0.0 and 1.0.
+- attempt field must match the provided attempt number.
 """
 
     # ---------------------------------
@@ -91,11 +142,7 @@ Rules:
 
     content = types.Content(
         role="user",
-        parts=[
-            types.Part(
-                text=prompt
-            )
-        ]
+        parts=[types.Part(text=prompt)]
     )
 
     # ---------------------------------
@@ -122,84 +169,21 @@ Rules:
                 )
 
     # ---------------------------------
-    # Validate Response
+    # Parse and Validate Response
     # ---------------------------------
 
-    if not final_text:
-
-        raise RuntimeError(
-            f"{agent_name} did not return "
-            f"a response"
-        )
-
-    final_text = final_text.strip()
+    result = extract_and_parse_json(final_text, agent_name)
 
     # ---------------------------------
-    # Remove Markdown JSON
+    # Return Standard Worker Result
     # ---------------------------------
 
-    if final_text.startswith("```json"):
-
-        final_text = final_text[
-            len("```json"):
-        ]
-
-    elif final_text.startswith("```"):
-
-        final_text = final_text[
-            len("```"):
-        ]
-
-    if final_text.endswith("```"):
-
-        final_text = final_text[
-            :-len("```")
-        ]
-
-    final_text = final_text.strip()
-
-    # ---------------------------------
-    # Parse JSON
-    # ---------------------------------
-
-    try:
-
-        result = json.loads(
-            final_text
-        )
-
-    except json.JSONDecodeError as e:
-
-        raise RuntimeError(
-            f"{agent_name} returned invalid JSON: "
-            f"{final_text}"
-        ) from e
-
-    # ---------------------------------
-    # Return Standard Agent Result
-    # ---------------------------------
-
-    return AgentRecommendation(
-
-        agent_name=result.get(
-            "agent_name",
-            agent_name
-        ),
-
-        recommendation=result.get(
-            "recommendation",
-            ""
-        ),
-
-        confidence=float(
-            result.get(
-                "confidence",
-                0.0
-            )
-        ),
-
-        metrics=result.get(
-            "metrics",
-            {}
-        )
-    )
+    return {
+        "agent_name": result.get("agent_name", agent_name),
+        "status": result.get("status", "completed"),
+        "recommendation": result.get("recommendation", ""),
+        "confidence": float(result.get("confidence", 0.0)),
+        "metrics": result.get("metrics", {}),
+        "task": result.get("task", task),
+        "attempt": result.get("attempt", attempt)
+    }

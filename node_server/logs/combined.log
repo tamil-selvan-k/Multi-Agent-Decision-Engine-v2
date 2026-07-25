@@ -237,8 +237,3 @@
 {"level":"info","message":"\u001b[0mGET /api/me \u001b[32m200\u001b[0m 7805.377 ms - 380\u001b[0m","timestamp":"2026-07-24T23:13:55.292Z"}
 {"level":"info","message":"\u001b[0mGET /api/me \u001b[36m304\u001b[0m 2139.305 ms - -\u001b[0m","timestamp":"2026-07-24T23:13:57.462Z"}
 {"level":"info","message":"Shutting down server...","timestamp":"2026-07-24T23:14:02.808Z"}
-{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T23:28:19.696Z"}
-{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-24T23:31:06.452Z"}
-{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-25T00:06:44.574Z"}
-{"level":"info","message":"Server is running on port 3000 in development mode","timestamp":"2026-07-25T02:04:06.778Z"}
-{"level":"info","message":"\u001b[0mGET /api/agents?q= \u001b[32m200\u001b[0m 6093.894 ms - 1391\u001b[0m","timestamp":"2026-07-25T02:24:09.285Z"}

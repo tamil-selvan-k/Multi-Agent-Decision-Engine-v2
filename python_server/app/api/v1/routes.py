@@ -24,7 +24,7 @@ async def trigger_agents(request: OrchestrationRequest):
     )
 
     return ApiResponse.success(
-        data=decision.model_dump(),
+        data=decision,
         message="Multi-agent decision orchestration completed",
         status_code=200
     )
